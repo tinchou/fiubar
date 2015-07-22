@@ -105,8 +105,7 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'django.contrib.admin',
 	'django.contrib.humanize',
-	'django.contrib.markup',
-	'django.contrib.comments',
+	'django_comments',
 	'django.contrib.flatpages',
 
 	'website',

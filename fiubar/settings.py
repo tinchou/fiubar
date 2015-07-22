@@ -4,6 +4,7 @@ from os.path import abspath, dirname, join
 
 from openmate.core.global_settings import *
 
+SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
