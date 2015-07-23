@@ -129,7 +129,7 @@ class Profile(models.Model):
         list_display = ('user', 'gender', 'nickname', 'birthdate', 'location', 'interests', 'date_updated')        
         list_filter = ['gender', 'location']
         search_fields = ['nickname', 'location', 'interests']
-admin.site.register(Profile, Profile.Admin)  
+# admin.site.register(Profile, Profile.Admin)  
       
 class PhotoManager(models.Manager):
     
@@ -231,7 +231,7 @@ class Photo(models.Model):
     class Admin(admin.ModelAdmin):
         list_display = ('user', 'avatar')
         list_filter = ['avatar']
-admin.site.register(Photo, Photo.Admin)        
+# admin.site.register(Photo, Photo.Admin)        
 
 class ServiceInstantMessengerManager(models.Manager):
     def choices(self):
@@ -291,7 +291,7 @@ class LinkInstantMessenger(models.Model):
 
     class Admin(admin.ModelAdmin):
         list_display = ('user', 'service', 'account')
-admin.site.register(LinkInstantMessenger, LinkInstantMessenger.Admin)
+# admin.site.register(LinkInstantMessenger, LinkInstantMessenger.Admin)
 
 class LinkSocialNetwork(models.Model):
     user = models.ForeignKey(User)
@@ -309,7 +309,7 @@ class LinkSocialNetwork(models.Model):
 
     class Admin(admin.ModelAdmin):
         list_display = ('user', 'service', 'account')
-admin.site.register(LinkSocialNetwork, LinkSocialNetwork.Admin)
+# admin.site.register(LinkSocialNetwork, LinkSocialNetwork.Admin)
 
 class LinkWebsite(models.Model):
     user = models.ForeignKey(User)
@@ -324,7 +324,7 @@ class LinkWebsite(models.Model):
 
     class Admin(admin.ModelAdmin):
         list_display = ('user', 'name', 'url')
-admin.site.register(LinkWebsite, LinkWebsite.Admin)
+# admin.site.register(LinkWebsite, LinkWebsite.Admin)
 
 #class Notification(models.Model):
 #    # Notificarme por nuevos Mensajes Privados:     

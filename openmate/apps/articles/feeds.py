@@ -1,4 +1,4 @@
-from django.contrib.syndication.feeds import Feed, FeedDoesNotExist
+from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.contrib.sites.models import Site
 from django.db.models import permalink
 from articles.models import Article, Category

@@ -8,7 +8,7 @@
     {% if account %}
         <p>
             {% trans '¡Gracias por registrarte!' %}
-            {% trans '¡Ahora podés' %} <a href="{% url account-login %}">{% trans 'iniciar sesión' %}</a>
+            {% trans '¡Ahora podés' %} <a href="{% url 'account-login' %}">{% trans 'iniciar sesión' %}</a>
             {% trans 'y empezar a usar el sitio!' %}
 
         </p>

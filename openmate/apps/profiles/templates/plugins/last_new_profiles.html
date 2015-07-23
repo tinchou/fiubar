@@ -22,7 +22,7 @@
     {% else %}
     <p>{% trans 'No hay nuevos usuarios.' %}</p>
     {% endif %}</div>
-    <form id="search-form" action="{% url member-search %}" method="get">
+    <form id="search-form" action="{% url 'member-search' %}" method="get">
       <div>
         {% if form_errors %}<span class="error">{{ form_errors }}</span>{% endif %}
         <input type="text" id="id_search_form" name="q" value="{{ search_query|escape }}" />

@@ -1,9 +1,12 @@
-FROM django:python2
+FROM django:1.7-python2
 
 ENV SECRET_KEY="please change how we handle the secret key"
-COPY . /usr/src/app
+
 WORKDIR /usr/src/app/fiubar
-RUN pip install -r requirements.txt
-RUN python manage.py syncdb
+ADD fiubar/requirements.txt /usr/src/app/fiubar/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+ADD . /usr/src/app
+RUN python manage.py migrate
 RUN python manage.py loaddata ../fiubar.json
-CMD ["python", "manage.py", "runserver"]
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

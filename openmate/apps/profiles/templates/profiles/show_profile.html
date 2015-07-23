@@ -34,7 +34,7 @@
         {{ profile.interests }}
       </li>{% endif %}
       {% ifnotequal user member %}<li class="send-message">
-        <a href="{% url msgs-compose %}?rcpt={{ member.username }}">{% trans 'Enviar mensaje' %}</a>
+        <a href="{% url 'msgs-compose' %}?rcpt={{ member.username }}">{% trans 'Enviar mensaje' %}</a>
       </li>{% endifnotequal %}
     </ul>
   </div>

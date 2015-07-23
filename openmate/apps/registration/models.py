@@ -16,7 +16,8 @@ Also, be sure to see the note on ``RegistrationProfile`` about use of the
 """
 
 
-from django.contrib.auth.models import User, SiteProfileNotAvailable
+# from django.contrib.auth.models import User, SiteProfileNotAvailable
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 #from django.contrib import admin
 from django.db import models
@@ -249,5 +250,11 @@ class RegistrationProfile(models.Model):
 		expiration_date = datetime.timedelta(days=getattr(settings, 'ACCOUNT_ACTIVATION_DAYS', 5))
 		return self.user.date_joined + expiration_date <= datetime.datetime.now()
 	activation_key_expired.boolean = True
+
+
+class SiteProfileNotAvailable(Exception):
+	"""This class existed in Django 1.2 in django.contrib.auth.models but was removed"""
+	pass		
+
 
 #admin.site.register(RegistrationProfile, RegistrationProfile.Admin)

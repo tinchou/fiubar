@@ -7,10 +7,10 @@
 {% block menu %}<div class="box">
 		  <h2>Acerca de</h2>
 		  <ul>
-			<li><a href="{% url about-fiubar %}"><span>Acerca de Fiubar</span></a></li>
-			<li><a href="{% url about-faq %}"><span>Preguntas Frecuentes</span></a></li>
-			<li><a href="{% url about-bugs %}"><span>Reportar un error</span></a></li>
-			<li><a class="current" href="{% url about-contact %}"><span>Contactanos</span></a></li>
+			<li><a href="{% url 'about-fiubar' %}"><span>Acerca de Fiubar</span></a></li>
+			<li><a href="{% url 'about-faq' %}"><span>Preguntas Frecuentes</span></a></li>
+			<li><a href="{% url 'about-bugs' %}"><span>Reportar un error</span></a></li>
+			<li><a class="current" href="{% url 'about-contact' %}"><span>Contactanos</span></a></li>
 		  </ul>
 		</div>{% endblock %}
 

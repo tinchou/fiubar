@@ -18,7 +18,7 @@
 	  Si te interesa participar en Fiubar tirando más ideas, podés mirar
 	  <a href="http://code.fiubar.com.ar/">este sitio</a>.
 	</p>
-	<form id="about-ideas" action="{% url about-ideas %}" method="post">
+	<form id="about-ideas" action="{% url 'about-ideas' %}" method="post">
 		<div class="category">
 			<label for="id_category">{{ form.category.label }}:</label>
 			{% if form.category.errors %} <span class="error">{{ form.category.errors|join:", " }}</span>{% endif %}

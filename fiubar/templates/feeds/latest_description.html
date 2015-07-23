@@ -67,7 +67,7 @@
 	  <span class="categories">
 		Categoría: <a rel="category" title="{% blocktrans with obj.category as category %}View all posts in {{ category }}{% endblocktrans %}" href="{{ obj.category.get_absolute_url }}">{{ obj.category }}</a>
 	  </span>{% if tag_list %}<span class="tags">Tags: {% for tag in tag_list %}
-		<a rel="tag" href="{% url article-tags tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+		<a rel="tag" href="{% url 'article-tags tag' %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
 	  </span>{% endif %}
 	</div>
 </div>

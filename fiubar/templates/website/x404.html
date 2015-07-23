@@ -24,13 +24,13 @@
         <input type="text" />Search
     </p>
     <p>
-        <a href="{% url account-register %}">¿Ya te registraste?</a>
+        <a href="{% url 'account-logout' %}">¿Ya te registraste?</a>
     </p>
     <p>
-        <a href="{% url groups-list %}">¿Viste los grupos que hay?</a>
+        <a href="{% url 'groups-list' %}">¿Viste los grupos que hay?</a>
     </p>
     <p>
-        <a href="{% url news-list %}">¿Leiste las ultimas noticias?</a>
+        <a href="{% url 'news-list' %}">¿Leiste las ultimas noticias?</a>
     </p>{% endcomment %}
 {% endblock %}
 

@@ -10,8 +10,8 @@
       <div id="slogan">{{ site_description }}</div>
       <p>{% if user.is_authenticated %}
         Hola {{ user.username }}! | 
-        <a href="{% url account-logout %}">{% trans 'Log out' %}</a>
-      {% else %}<a href="{% url account-login %}">{% trans 'Log in' %}</a>
+        <a href="{% url 'account-logout' %}">{% trans 'Log out' %}</a>
+      {% else %}<a href="{% url 'account-login' %}">{% trans 'Log in' %}</a>
       {% endif %}</p>
     </div>{% endblock %}
 

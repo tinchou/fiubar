@@ -58,7 +58,7 @@ class Article(models.Model):
 	allow_comments = models.BooleanField(default=True)
 	summary = models.CharField(blank=True, max_length=500)
 	snippet = models.TextField(blank=True)
-	orig_link = models.URLField(verify_exists=False, blank=True, null=True)
+	orig_link = models.URLField(blank=True, null=True)
 	image = models.ImageField(upload_to=upload_dir_image, storage=storage(width=ARTICLES_IMG_WIDTH, height=ARTICLES_IMG_HEIGHT, canvas='rel'), blank=True, null=True, help_text=u'Max dimensions: %dpx, %dpx' % (ARTICLES_IMG_WIDTH, ARTICLES_IMG_HEIGHT))
 
 	def __unicode__(self):

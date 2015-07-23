@@ -17,7 +17,7 @@
   <h2>{% trans 'Tags' %}</h2>
   <div class="tag-cloud">{% for tagx in tag_list %}
     <span>
-      <a  style="font-size: {% tag_font_size tagx.font_size 10 10 24 %}px" rel="tag" href="{% url article-tags tagx %}"{% ifequal tagx tag %} class="current"{% endifequal %}>{{ tagx }}</a>
+      <a  style="font-size: {% tag_font_size tagx.font_size 10 10 24 %}px" rel="tag" href="{% url 'article-tags tagx' %}"{% ifequal tagx tag %} class="current"{% endifequal %}>{{ tagx }}</a>
     </span> {% endfor %}
   </div>
 {% endblock %}

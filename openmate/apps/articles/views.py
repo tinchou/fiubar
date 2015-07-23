@@ -11,9 +11,16 @@ from django.conf import settings
 
 ARTICLES_PAGINATED_BY = getattr(settings, 'ARTICLES_PAGINATED_BY', 9)
 
-def article_list_index(request, *args, **kwargs):
-  from django.views.generic.list_detail import object_list
+from django.views.generic.list import ListView
 
+class SubListView(ListView):
+    extra_context = {}
+    def get_context_data(self, **kwargs):
+        context = super(SubListView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context
+
+def article_list_index(request, *args, **kwargs):
   queryset = Article.objects.published()
   extra_context = {}
 
@@ -24,12 +31,12 @@ def article_list_index(request, *args, **kwargs):
   kwargs.update({
 	'queryset': queryset,
 	'paginate_by': ARTICLES_PAGINATED_BY,
-	'page': request.GET.get('page', 1),
+	# 'page': request.GET.get('page', 1),
 	'allow_empty': True,
-	'template_object_name': 'article',
+	'context_object_name': 'article',
 	'extra_context' : extra_context,
   })
-  return object_list(request, *args, **kwargs)
+  return SubListView.as_view(*args, **kwargs)(request)
 
 def article_detail(request, *args, **kwargs):
   from django.views.generic.date_based import object_detail
@@ -136,7 +143,7 @@ def article_list_index_(request, *args, **kwargs):
 
 def tags_list(request, *args, **kwargs):
 	"""Show all tags used in articles"""
-	from django.views.generic.simple import direct_to_template
+	from django.views.generic.base import TemplateView
 	extra_content = {}
 	kwargs.update({ 'template' : 'articles/tags_list.html',
 	  'extra_content' : extra_content,

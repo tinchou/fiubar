@@ -32,7 +32,7 @@
             <a rel="category" title="{% blocktrans with article.category as category %}View all posts in {{ category }}{% endblocktrans %}" href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
           </span>
           {% if tag_list %}<span class="tags span-item">{% for tag in tag_list %}
-            <a rel="tag" href="{% url article-tags tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+            <a rel="tag" href="{% url 'article-tags tag' %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
           </span>{% endif %}
 {% get_comment_count for article as comment_count %}
           <span class="comments span-item"><a title="{% blocktrans with article.title as title %}Dejá tu comentario sobre {{ title }}{% endblocktrans %}" href="{{ article.get_absolute_url }}#respond">
@@ -60,7 +60,7 @@
               <a rel="category" title="{% blocktrans with article.category as category %}View all posts in {{ category }}{% endblocktrans %}" href="{{ article.category.get_absolute_url }}">{{ article.category }}</a>
             </span>
             {% if tag_list %}<span class="tags">{% for tag in tag_list %}
-              <a rel="tag" href="{% url article-tags tag %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
+              <a rel="tag" href="{% url 'article-tags tag' %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}
             </span>{% endif %}
             {% ifequal user article.author %}<span class="edititem"><a title="{% trans 'Editar artículo' %}" href="{{ article.get_edit_url }}">{% trans 'Editar' %}</a></span>{% endifequal %}
           </div>
@@ -124,7 +124,7 @@
           </div>
         </div>
         {% if user.is_authenticated %}<!-- leave a comment -->
-        <form id="commentform" method="post" action="{% url articles-post_comment %}">
+        <form id="commentform" method="post" action="{% url 'articles-post_comment' %}">
           <a name="respond"></a>
           {% get_comment_form for article as form %}
           <div id="respond">
@@ -163,8 +163,8 @@
           </div>
         </form>{% else %}
         <div id="respond">
-          <div class="row"><a href="{% url account-login %}?next={{ request.path }}#respond">{% trans 'Iniciá sesión</a> para dejar tu comentario.' %}</div>
-          <div class="row">{% trans "¿No tenés una cuenta?" %} <a href="{% url account-register %}">{% trans '¡Registrate ahora!' %}</a></div>
+          <div class="row"><a href="{% url 'account-login' %}?next={{ request.path }}#respond">{% trans 'Iniciá sesión</a> para dejar tu comentario.' %}</div>
+          <div class="row">{% trans "¿No tenés una cuenta?" %} <a href="{% url 'account-logout' %}">{% trans '¡Registrate ahora!' %}</a></div>
         </div>{% endif %}
         <div class="fixed"></div>
       </div>

@@ -8,9 +8,9 @@
 {% block menu %}<div class="box">
           <h2>{% trans 'Mi cuenta' %}</h2>
           <ul>
-            <li><a href="{% url account-login %}"><span>{% trans 'Iniciar sesión' %}</span></a></li>
-            <li><a href="{% url account-register %}"><span>{% trans 'Creá tu cuenta' %}</span></a></li>
-            <li><a href="{% url account-password_reset %}"><span>{% trans 'Olvidé mi contraseña' %}</span></a></li>
+            <li><a href="{% url 'account-login' %}"><span>{% trans 'Iniciar sesión' %}</span></a></li>
+            <li><a href="{% url 'account-logout' %}"><span>{% trans 'Creá tu cuenta' %}</span></a></li>
+            <li><a href="{% url 'account-password_reset' %}"><span>{% trans 'Olvidé mi contraseña' %}</span></a></li>
           </ul>
         </div>{% endblock %}
 

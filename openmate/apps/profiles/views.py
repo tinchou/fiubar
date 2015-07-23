@@ -6,7 +6,6 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
-from django.views.generic import list_detail
 from django.contrib.auth.models import User
 from profiles.forms import ProfileForm, UploadPhotoForm, LinkSocialNetworkForm, LinkInstantMessengerForm, LinkWebsiteForm
 from profiles.models import Profile, Photo, LinkInstantMessenger, LinkSocialNetwork, LinkWebsite
@@ -149,13 +148,13 @@ def notifications(request):
 def list_users(request):
     """Lists users"""
     page = request.GET.get('p', 1)
-    return list_detail.object_list(
+    return SubListView.as_view(
       request,
       queryset = Profile.objects.get_all_users(),
       paginate_by = RESULTS_PER_PAGE,
       page = page,
       extra_context = { 'object' : _(u'user') },
-    )
+    )(request)
 
 @login_required
 def search(request):
@@ -179,14 +178,13 @@ def search(request):
                 'search_query' : search_query, 'query_string' : query_string, 
                 'object' : _(u'user')
             })
-            return list_detail.object_list(
-              request,
+            return SubListView.as_view(
               queryset = query_set,
               paginate_by = RESULTS_PER_PAGE,
-              page = page,
+              # page = page,
               extra_context = dict_data,
               template_name = 'profiles/search_users.html',
-            )
+            )(request)
         else:
             dict_data.update({ 'form_errors' : _(u'Ingresar al menos dos caracteres.'),
                 'search_query' : search_query,
@@ -195,3 +193,13 @@ def search(request):
         dict_data['form_errors'] = None
     return render_to_response('profiles/search_users.html', dict_data,
                             context_instance=RequestContext(request))
+
+
+from django.views.generic.list import ListView
+
+class SubListView(ListView):
+    extra_context = {}
+    def get_context_data(self, **kwargs):
+        context = super(SubListView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context

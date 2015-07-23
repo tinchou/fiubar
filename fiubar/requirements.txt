@@ -1,1 +1,5 @@
 django-contrib-comments
+django-markup-deprecated
+django-registration-redux
+Pillow
+python-dateutil

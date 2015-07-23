@@ -2,7 +2,7 @@
 
 {### SIDEBAR ###}
 {% block sidebar-content%}
-                <form id="sidebar-bugs" action="{% url about-bugs %}" method="post">
+                <form id="sidebar-bugs" action="{% url 'about-bugs' %}" method="post">
                 <div style="margin: 0px">
                   <input type="hidden" name="xhr" value="" />
                   <input type="hidden" name="subject" value="{% trans 'Error (desde sidebar)' %}" />

@@ -4,7 +4,7 @@ URLConf for Django user profile.
 
 """
 
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 
 urlpatterns = patterns('profiles.views',
 

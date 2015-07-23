@@ -22,7 +22,8 @@ from django.conf import settings
 from django.db import models
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User, SiteProfileNotAvailable
+# from django.contrib.auth.models import User, SiteProfileNotAvailable
+from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.core.mail import send_mail
 from django.contrib import admin

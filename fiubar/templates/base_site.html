@@ -9,9 +9,9 @@
         <ul class="login">
           {% if user.is_authenticated %}<li><span class="welcome-user">Hola <span class="username">{{ user.username }}</span>!</span></li>
           {#<li><a href="{ # url messages-inbox # }">Inbox</a></li>#}
-          <li><a href="{% url account-logout %}">Cerrar sesión</a></li>
-          {% else %}<li><a href="{% url account-register %}">¡Creá tu cuenta!</a></li>
-          <li><a href="{% url account-login %}">Iniciar sesión</a></li>{% endif %}
+          <li><a href="{% url 'account-logout' %}">Cerrar sesión</a></li>
+          {% else %}<li><a href="{% url 'account-logout' %}">¡Creá tu cuenta!</a></li>
+          <li><a href="{% url 'account-login' %}">Iniciar sesión</a></li>{% endif %}
         </ul>
 <!--    <div id="container-top">
       <a href="/"><h1 id="title"><span>{{ site_name }}</span></h1></a>
@@ -60,16 +60,16 @@
 
 {% block footer %}
   <div class="first">
-      <h4><a href="{% url about-fiubar %}" class="footer-left">Acerca de Fiubar</a></h4>
+      <h4><a href="{% url 'about-fiubar' %}" class="footer-left">Acerca de Fiubar</a></h4>
   </div>
   <div>
-      <h4><a href="{% url about-faq %}" class="big">Preguntas frecuentes</a></h4>
+      <h4><a href="{% url 'about-faq' %}" class="big">Preguntas frecuentes</a></h4>
   </div>
   <div>
-      <h4><a href="{% url about-bugs %}" class="bigger">Reportar un error</a></h4>
+      <h4><a href="{% url 'about-bugs' %}" class="bigger">Reportar un error</a></h4>
   </div>
   <div>
-      <h4><a href="{% url about-contact %}" class="big">Contactanos</a></h4>
+      <h4><a href="{% url 'about-contact' %}" class="big">Contactanos</a></h4>
   </div>
   <div>
       <h4><a href="http://blog.fiubar.com.ar/" target="_blank">Blog de Fiubar</a></h4>

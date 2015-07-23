@@ -23,9 +23,9 @@
   </form>
 
   <p>
-    <a href="{% url account-password_reset %}">{%trans '¿Olvidaste tu contraseña?' %}</a>
+    <a href="{% url 'account-password_reset' %}">{%trans '¿Olvidaste tu contraseña?' %}</a>
     {% if form.errors %}<span class="left-dotted"><img class="valign-middle" src="/media/images/angry.png" alt="" /><a href="/about/faq/#0" class="angry-error">{%trans '¡Grrr! ¡No puedo iniciar sesión!' %}</a></span>{% endif %}
-	<span class="left-dotted"><a href="{% url account-register %}">{% trans '¡Creá tu cuenta!' %}</a></span>
+	<span class="left-dotted"><a href="{% url 'account-logout' %}">{% trans '¡Creá tu cuenta!' %}</a></span>
   </p>
 
 {% endblock %}

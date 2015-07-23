@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import patterns, url, include
-from django.views.generic.simple import redirect_to
+from django.conf.urls import patterns, url, include
+from django.views.generic.base import RedirectView
 
 urlpatterns = patterns('facultad.views_materias',
     url(r'^$',
         'home',
-    #    redirect_to,
-    #    {'url': '/facultad/'},
+    #    RedirectView.as_view(url='/facultad/'),
         name='materias-home'),
 
     url(r'^(?P<cod_materia>\w+)/$',
@@ -31,7 +30,7 @@ urlpatterns = patterns('facultad.views_materias',
     #    include('polls.urls.encuestas')),
 
     url(r'^(?P<cod_materia>\w+)/group/',
-        redirect_to, {'url': '/group/fiuba-%(cod_materia)s/'},
+        RedirectView.as_view(url='/group/fiuba-%(cod_materia)s/'),
         name='materia-group'),
 
     url(r'^(?P<cod_materia>\w+)/alumnos/$',

@@ -9,7 +9,6 @@ from django.core.cache import cache
 from facultad.models import Carrera, Alumno, AlumnoMateria, PlanCarrera
 from facultad import forms
 from facultad.decorators import get_carreras
-from django.views.generic import list_detail
 from openmate.core.log import logger
 
 dict_data = {}
@@ -104,7 +103,19 @@ def alumnos(request, plancarrera):
 	page = int(request.GET.get('p', 1))
 	queryset = Alumno.objects.filter(plancarrera=plancarrera).order_by('-begin_date', '-id')
 	dict_data.update({ 'plancarrera' : plancarrera, 'object' : _(u'alumno') })
-	return list_detail.object_list( request, queryset=queryset,
-				paginate_by=RESULTS_PER_PAGE, page=page,
-				extra_context=dict_data, template_name = 'carreras/carrera_alumnos.html',
-			)
+	return SubListView.as_view(
+				queryset=queryset,
+				paginate_by=RESULTS_PER_PAGE,
+				page=page,
+				extra_context=dict_data,
+				template_name = 'carreras/carrera_alumnos.html',
+			)(request)
+
+from django.views.generic.list import ListView
+
+class SubListView(ListView):
+    extra_context = {}
+    def get_context_data(self, **kwargs):
+        context = super(SubListView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context

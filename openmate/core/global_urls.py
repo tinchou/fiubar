@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include, handler404, handler500
 from django.contrib import admin
 admin.autodiscover()
 
@@ -26,7 +26,6 @@ urlpatterns = patterns('',
 """
 
 # Custom 404 and 500 views
-from django.conf.urls.defaults import handler404, handler500
 handler404 = 'website.views.page_not_found'
 handler500 = 'website.views.server_error'
 

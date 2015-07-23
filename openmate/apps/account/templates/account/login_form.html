@@ -1,6 +1,6 @@
 {% load i18n %}
         <h1 id="login">{%trans 'Iniciar sesión' %}</h1>
-        <form method="post" action="{% url account-login %}">
+        <form method="post" action="{% url 'account-login' %}">
           <div>
             <label class="label" for="id_username">{% trans 'Usuario o Email:' %}</label>
             <input type="text" maxlength="30" name="username" id="id_username"/>
@@ -13,12 +13,12 @@
               <input type="submit" value="{% trans 'Log in' %}" class="login-button" class="boutonValidation" />
           </div>
           <div class="small">
-              <a href="{% url account-password_reset %}">{% trans 'Forgotten your password?' %}</a>
+              <a href="{% url 'account-password_reset' %}">{% trans 'Forgotten your password?' %}</a>
           </div>
         </form>
         <h1 id="register">{%trans '¿No tenés una cuenta?' %}</h1>
         <div>
-          <a class="link-button bt-sign-up" href="{% url account-register %}">
+          <a class="link-button bt-sign-up" href="{% url 'account-logout' %}">
           {%trans '¡Creá una ahora!' %}
           </a>
         </div>
@@ -40,12 +40,12 @@
     </div>
   </form>
   <p>
-    <a href="{% url account-password_reset %}">{%trans 'Forgotten your password?' %}</a>
+    <a href="{% url 'account-password_reset' %}">{%trans 'Forgotten your password?' %}</a>
     {% if form.errors %}<span class="angry-error"><img src="/media/images/angry.png" alt="" /><a href="/about/faq/#0">{%trans '¡Grrr! ¡No puedo iniciar sesión!' %}</a></span>{% endif %}
   </p>
 
   <p>
-    {% trans 'You can' %} <a href="{% url account-register %}">{% trans 'sign up' %}</a>
+    {% trans 'You can' %} <a href="{% url 'account-logout' %}">{% trans 'sign up' %}</a>
     {% trans "for one; it's free, and you'll get access to a bunch of nifty features" %}.
   </p>
 {% endcomment %}

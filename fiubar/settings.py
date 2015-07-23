@@ -15,8 +15,12 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'sqlite3'     # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
-DATABASE_NAME = 'db.sqlite3'			 # Or path to database file if using sqlite3.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '/fiubar.db',
+    }
+}
 
 ROOT_URLCONF = 'fiubar.urls'
 MEDIA_ROOT = BASE_DIR + '/fiubar/media/'

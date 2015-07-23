@@ -7,8 +7,8 @@ URLConf for Django user registration.
 
 """
 
-from django.conf.urls.defaults import patterns, url
-from django.views.generic.simple import direct_to_template
+from django.conf.urls import patterns, url
+# from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = patterns('',

@@ -56,9 +56,9 @@
         {% endfor %}
     </table>
     {% endif %}
-    <a class="link-button add-carrera" href="{% url carreras-add %}">{% trans 'Agregar carrera'%}</a>
+    <a class="link-button add-carrera" href="{% url 'carreras-add' %}">{% trans 'Agregar carrera'%}</a>
     {% if list_carreras %}
-    <a class="link-button button-delete" href="{% url carreras-show_delete %}">{% trans 'Borrar carrera'%}</a>
+    <a class="link-button button-delete" href="{% url 'carreras-show_delete' %}">{% trans 'Borrar carrera'%}</a>
     {% endif %}
     <div class="clear"></div>
 {% endblock %}

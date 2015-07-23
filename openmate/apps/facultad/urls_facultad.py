@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import patterns, url
-from django.views.generic.simple import redirect_to
+from django.conf.urls import patterns, url
+from django.views.generic.base import RedirectView
 
 urlpatterns = patterns('facultad.views_facultad',
 
@@ -12,7 +12,7 @@ urlpatterns = patterns('facultad.views_facultad',
 	#url(r'^materias/$', 'plancarrera_all',
 	#	name='facultad-materias'),
 	url(r'^materias/$',
-        redirect_to, {'url': '/facultad/'},
+        RedirectView.as_view(url='/facultad/'),
         name='facultad-materias'),
 
 	url(r'^materias/cargar/$', 'cargar_materias',

@@ -7,10 +7,10 @@
 {% block menu %}<div class="box">
           <h2>Acerca de</h2>
           <ul>
-            <li><a href="{% url about-fiubar %}"><span>Acerca de Fiubar</span></a></li>
-            <li><a class="current" href="{% url about-faq %}"><span>Preguntas Frecuentes</span></a></li>
-            <li><a href="{% url about-bugs %}"><span>Reportar un error</span></a></li>
-            <li><a href="{% url about-contact %}"><span>Contactanos</span></a></li>
+            <li><a href="{% url 'about-fiubar' %}"><span>Acerca de Fiubar</span></a></li>
+            <li><a class="current" href="{% url 'about-faq' %}"><span>Preguntas Frecuentes</span></a></li>
+            <li><a href="{% url 'about-bugs' %}"><span>Reportar un error</span></a></li>
+            <li><a href="{% url 'about-contact' %}"><span>Contactanos</span></a></li>
           </ul>
         </div>{% endblock %}
 
@@ -36,8 +36,8 @@
   <a name="0"></a><h3>¡No puedo iniciar sesión!</h3>
   <p>¡Buuuuu! Nos ponemos muy tristes... <img src="/media/images/emoticon_unhappy.png" alt=":(" /></p>
   <ul>
-    <li><b>¿Recibiste el mail de activación de cuenta? ¿Pudiste activar tu cuenta?</b> Si tu respuesta es no, informanos sobre esta situación <a href="{% url about-contact %}">en esta página</a> o escribinos a <a href="mailto:problemas&#64;fiubar.com.ar">problemas&#64;fiubar.com.ar</a></li>
-    <li><b>¿Olvidaste tu contraseña?</b> Podés reinicializarla <a href="{% url account-password_reset %}">en este link</a>. Te enviaremos un mail con instrucciones para generar una nueva, y tu nombre de usuario, por si lo olvidaste.</li>
+    <li><b>¿Recibiste el mail de activación de cuenta? ¿Pudiste activar tu cuenta?</b> Si tu respuesta es no, informanos sobre esta situación <a href="{% url 'about-contact' %}">en esta página</a> o escribinos a <a href="mailto:problemas&#64;fiubar.com.ar">problemas&#64;fiubar.com.ar</a></li>
+    <li><b>¿Olvidaste tu contraseña?</b> Podés reinicializarla <a href="{% url 'account-password_reset' %}">en este link</a>. Te enviaremos un mail con instrucciones para generar una nueva, y tu nombre de usuario, por si lo olvidaste.</li>
   </ul>
   <p>Recordá que para iniciar sesión, podés ingresar tanto tu nombre de usuario, sin importar minúsculas o mayúsculas, como tu email.</p>
 
@@ -107,7 +107,7 @@
 
 <a name="9"></a><h3>¿Cómo borro mi cuenta?</h3>
 <p>
-  Si querés borrar tu cuenta junto a tus datos, solicitalo <a href="{% url about-contact %}">en este formulario</a>
+  Si querés borrar tu cuenta junto a tus datos, solicitalo <a href="{% url 'about-contact' %}">en este formulario</a>
   o escribinos a <a href="mailto:baja&#64;fiubar.com.ar">baja&#64;fiubar.com.ar</a>.
 </p>
 
@@ -115,7 +115,7 @@
 
 <a name="10" class="list-item"></a><h3>Mi pregunta no está en la lista.</h3>
 <p>
-  Podés contactarnos por medio de <a href="{% url about-contact %}">esta página</a>, ¡te responderemos a la brevedad!
+  Podés contactarnos por medio de <a href="{% url 'about-contact' %}">esta página</a>, ¡te responderemos a la brevedad!
 </p>
 
 <div class="clear separator"></div>
